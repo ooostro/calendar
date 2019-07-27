@@ -1,0 +1,53 @@
+html {
+    height: 100%;
+}
+
+body {
+    height: 100%;
+    margin: 0;
+}
+
+.main-wrapper {
+    background-color: #f4f4f4;
+    display: flex;
+    height: 100%;
+    width: 100%;
+    justify-content: center;
+}
+
+.calendar-wrapper {
+    width: 22em;
+}
+
+table {
+    border-collapse: collapse;
+    font-family: 'Old Standard TT', serif;
+    text-transform: uppercase;
+    margin-top: 2em;
+    table-layout: fixed;
+    width: 100%;
+}
+
+#calendar-header {
+    background-color: #dcd0c0;
+    color: #fff;
+    border-color: #dcd0c0;
+}
+
+td, th {
+    border: solid 1px #ddd;
+    position: relative;
+    background-color: #fff;
+    text-transform: none;
+}
+
+td {
+    padding: .2em 1em 1em .2em;
+    font-style: italic;
+    color: #666;
+}
+
+th {
+    padding: .5em;
+    width: 14.29%;
+}
