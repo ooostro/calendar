@@ -51,3 +51,15 @@ th {
     padding: .5em;
     width: 14.29%;
 }
+
+.todays-date {
+    background-color: #dcd0c0;
+}
+
+.crossed-date {
+    position: absolute;
+    left: 13%;
+    top: 22%;
+    width: 72%;
+    height: 67%;
+}

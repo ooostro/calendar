@@ -36,10 +36,30 @@ function showCalendar(month, year) {
                 cellText = document.createTextNode("");
                 cell.appendChild(cellText);
                 row.appendChild(cell);
-                cell.classList.add("date-number");
             }
             else if (date > daysInMonth) {
                 break;
+            }
+
+            else if (currentDay > date) {
+                cell = document.createElement("td");
+                cellText = document.createTextNode(date);
+                cellImage = document.createElement("img");
+                cellImage.src = 'http://i.piccy.info/i7/c7a432fe0beb98a3a66f5b423b430423/1-5-1789/1066503/lol.png';
+                cellImage.classList.add("crossed-date");
+                cell.appendChild(cellText);
+                cell.appendChild(cellImage);
+                row.appendChild(cell);
+                date++;
+            }
+
+            else if (currentDay == date) {
+                cell = document.createElement("td");
+                cell.classList.add("todays-date");
+                cellText = document.createTextNode(date);
+                cell.appendChild(cellText);
+                row.appendChild(cell);
+                date++;
             }
 
             else {
