@@ -1,2 +1,2 @@
 # calendar
-Calendar built with pure JS. URL: http://hannaostrom.com/calendar/
+Calendar built with pure JS. View here: http://hannaostrom.com/calendar/
