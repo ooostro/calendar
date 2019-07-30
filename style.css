@@ -28,12 +28,6 @@ table {
     width: 100%;
 }
 
-#calendar-header {
-    background-color: #dcd0c0;
-    color: #fff;
-    border-color: #dcd0c0;
-}
-
 td, th {
     border: solid 1px #ddd;
     position: relative;
@@ -50,6 +44,30 @@ td {
 th {
     padding: .5em;
     width: 14.29%;
+}
+
+#previous-month,
+#next-month,
+#calendar-header {
+    background-color: #dcd0c0;
+    color: #fff;
+    border-color: #dcd0c0;
+}
+
+#calendar-header {
+    width: 71.45%;
+}
+
+.change-month {
+    border: none;
+    background-color: transparent;
+    color: #fff;
+    font-size: 1em;
+    cursor: pointer;
+}
+
+.change-month:focus {
+    outline: 1px dashed #fff;
 }
 
 .todays-date {

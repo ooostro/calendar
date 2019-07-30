@@ -2,20 +2,51 @@
 var today = new Date();
 var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 
+// set date variables, beginning with today's date
 var currentDay = today.getDate();
 var currentMonth = today.getMonth();
 var currentMonthName = months[today.getMonth()];
-var currentYear = today.getFullYear()
+var currentYear = today.getFullYear();
+
+// set constant variables for today's date
+var todaysDate = currentDay;
+var todaysMonth = currentMonth;
+var todaysMonthName = currentMonthName;
+var todaysYear = currentYear;
 
 let monthAndYear = document.getElementById("monthAndYear");
-showCalendar(currentMonth, currentYear)
+showCalendar(currentMonth, currentYear);
+
+function showPreviousMonth() {
+    currentYear = (currentMonth === 0) ? currentYear - 1 : currentYear;
+    currentMonth = (currentMonth === 0) ? 11 : currentMonth - 1;
+
+    // delete outdated cells in calendar
+    var tbl = document.getElementById("calendar-body");
+    tbl.innerHTML = "";
+
+    // repopulate calendar
+    showCalendar(currentMonth, currentYear);
+}
+
+function showNextMonth() {
+    currentYear = (currentMonth === 11) ? currentYear + 1 : currentYear;
+    currentMonth = (currentMonth + 1) % 12;
+
+    // delete outdated cells in calendar
+    var tbl = document.getElementById("calendar-body");
+    tbl.innerHTML = "";
+
+    // repopulate calendar
+    showCalendar(currentMonth, currentYear);
+}
 
 function showCalendar(month, year) {
 
-    let tbl = document.getElementById("calendar-body")
+    let tbl = document.getElementById("calendar-body");
 
     // display month and year
-    document.getElementById("calendar-header").innerHTML = currentMonthName + " " + currentYear;
+    document.getElementById("calendar-header").innerHTML = months[month] + " " + year;
 
     // get first day of week
     var firstDay = (new Date(year, month)).getDay();
@@ -41,7 +72,7 @@ function showCalendar(month, year) {
                 break;
             }
 
-            else if (currentDay > date) {
+            else if (currentDay > date && todaysMonth == currentMonth && todaysYear == currentYear || todaysMonth > currentMonth && todaysYear >= currentYear || todaysYear > currentYear) {
                 cell = document.createElement("td");
                 cellText = document.createTextNode(date);
                 cellImage = document.createElement("img");
@@ -53,7 +84,7 @@ function showCalendar(month, year) {
                 date++;
             }
 
-            else if (currentDay == date) {
+            else if (date == todaysDate && todaysMonth == currentMonth && todaysYear == currentYear) {
                 cell = document.createElement("td");
                 cell.classList.add("todays-date");
                 cellText = document.createTextNode(date);
